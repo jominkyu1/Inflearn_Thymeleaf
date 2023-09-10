@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li><a th:href="@{/hello}">Basic URL</a></li>
+  <li><a th:href="@{/hello(param1=${param1}, param2=${param2})}">Hello query parameters</a></li>
+  <li><a th:href="@{/hello/{param1}/{param2}
+                  (param1=${param1}, param2=${param2})}">Path Variables</a></li>
+  <li><a th:href="@{/hello/{param1} (param1=${param1}, param2=${param2})}">Path Variable + Query Parameter</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>if, unless문</h1>
+
+<table border="1">
+  <tr>
+    <th>count</th>
+    <th>username</th>
+    <th>age</th>
+  </tr>
+  <tr th:each="user : ${users}">
+    <td th:text="${userStat.count}"></td>
+    <td th:text="${user.username}"></td>
+    <td>
+      <span th:text="${user.age}"></span><br>
+      <span th:text="'미성년자입니다!'" th:style="'color: red'" th:if="${user.age} &lt; 20"></span>
+      <span th:text="'성인이시네요!'" th:style="'color: green'" th:if="${user.age} &gt; 19"></span>
+    </td>
+  </tr>
+</table>
+
+<h1>Switch</h1>
+<table border="1">
+  <tr>
+    <th>count</th>
+    <th>username</th>
+    <th>age</th>
+  </tr>
+  <tr th:each="user, userStat : ${users}">
+    <td th:text="${userStat.count}"></td>
+    <td th:text="${user.username}"></td>
+    <td th:switch="${user.age}">
+      <span th:case="10">10세 입니다!</span>
+      <span th:case="20">20세 입니다!</span>
+      <span th:case="*">10, 20이 아닌 모든 경우!</span>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

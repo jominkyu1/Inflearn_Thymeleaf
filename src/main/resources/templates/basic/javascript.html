@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1> 우클릭 -> 소스보기로 확인하세요! </h1>
+  <!-- 자바스크립트 사용 전 -->
+<script>
+    let username = "[[${user.username}]]";
+    let age = [[${user.age}]];
+
+    let username2 = /*[[${user.username}]]*/ "test username";
+
+    //객체할당 (자바에서 .tostring으로 할당하기때문에 자바스크립트에서 변수할당이 제대로 되지않음)
+    let user = [[${user}]];
+</script>
+<!-- 자바스크립트 th:inline 사용 후 -->
+<script th:inline="javascript">
+    //자료형에맞게 파싱해줌
+  let username = [[${user.username}]];
+  let age = [[${user.age}]];
+
+  //username으로 치환해준다
+  let username2 = /*[[${user.username}]]*/ "test username";
+
+  //객체를 JSON형태로 파싱해준다
+  let user = [[${user}]];
+
+
+</script>
+
+<!-- 자바스크립트 인라인 each -->
+<script th:inline="javascript">
+  [# th:each="user, userStat : ${users}"]
+    var user[[${userStat.count}]] = [[${user}]];
+  [/]
+
+      function hello(){
+        alert(user1.username);
+      }
+</script>
+
+<button onclick="hello()">버튼!</button>
+</body>
+</html>

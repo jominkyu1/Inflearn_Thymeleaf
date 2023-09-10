@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{template/layout/base :: common_header(~{::title}, ~{::.headerLink})}">
+  <meta charset="UTF-8">
+  <title>대체된 Title!</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" class="headerLink">
+  <link rel="stylesheet" th:href="@{/themes/smmothness/jquery-ui.css}" class="headerLink">
+</head>
+<body>
+<link rel="stylesheet" th:href="@{/TEST/TEST.CSS}">
+<h1>Main Contents</h1>
+</body>
+</html>
